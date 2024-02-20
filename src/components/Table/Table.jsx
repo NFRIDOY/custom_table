@@ -6,7 +6,7 @@ export default function Table() {
     return (
         <div className='table'>
             {/* Table Header */}
-            <section className='th'>
+            <section className='tHead'>
                 <div>Title</div>
                 <div>Date</div>
                 <div>Author</div>
@@ -14,7 +14,7 @@ export default function Table() {
                 <div>Action</div>
             </section>
             {/* Table body */}
-            <section>
+            <section className='tBody'>
                 <TableRow />
                 <TableRow />
             </section>

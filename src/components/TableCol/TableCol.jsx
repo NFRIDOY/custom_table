@@ -1,7 +1,7 @@
 
 
-export default function TableCol() {
+export default function TableCol({children}) {
   return (
-    <div>TableCol</div>
+    <div>{children}</div>
   )
 }
