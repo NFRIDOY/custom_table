@@ -3,6 +3,8 @@ import TableRow from './../TableRow/TableRow';
 import './tableStyle.css'
 
 export default function Table() {
+    const tableRowData1 = ["Avater", "Feb 23, 2023", "Michael", "true", "true" ];
+    const tableRowData2 = ["Avater2", "Feb 23, 2024", " DiMartino", "false", "false" ];
     return (
         <div className='table'>
             {/* Table Header */}
@@ -15,8 +17,8 @@ export default function Table() {
             </section>
             {/* Table body */}
             <section className='tBody'>
-                <TableRow />
-                <TableRow />
+                <TableRow tableRowData={tableRowData1} />
+                <TableRow tableRowData={tableRowData2}/>
             </section>
         </div>
     )
