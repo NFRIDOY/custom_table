@@ -13,3 +13,12 @@
 .tBody {
     padding: 30px 0px 0px 0px;
 }
+.show {
+    /* visibility: visible; */
+    /* display: inline; */
+}
+
+.hide {
+    /* visibility: hidden; */
+    display: none;
+}
