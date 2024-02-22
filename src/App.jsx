@@ -1,17 +1,23 @@
 import { useState } from 'react';
 import './App.css'
+import { MdOutlineMenu } from "react-icons/md";
 import Table from './components/Table/Table'
 import FilterCheckBox from './components/FilterCheckBox/FilterCheckBox';
+import "./styles/showHide.css";
 
 function App() {
-  // Step 2: Define state variable
+  // State for the Filter Menu Button
+  const [isFilterBtn, setIsFilterBtn] = useState(false);
+
+  // States for the colum toggle 
   const [isTitle, setIsTitle] = useState(true);
   const [isDate, setIsDate] = useState(true);
   const [isAuthor, setIsAuthor] = useState(true);
   const [isStatus, setIsStatus] = useState(true);
   const [isAction, setIsAction] = useState(true);
 
-  // Step 3: Event handler to toggle checkbox status
+
+  // function for the changeing checkbox 
   const handleCheckboxChange = (state, setState) => {
     setState(!state);
   };
@@ -21,55 +27,23 @@ function App() {
   }
   return (
     <>
-      {/* <section className='filter'>
-        <div>
-          <input
-            type="checkbox"
-            checked={isTitle}
-            onChange={() => handleCheckboxChange(isTitle, setIsTitle)} 
-          />
-          <label>Title</label>
-        </div>
-        <div>
-          
-          <input
-            type="checkbox"
-            checked={isDate}
-            onChange={() => handleCheckboxChange(isDate, setIsDate)} 
-          />
-          <label>Date</label>
-        </div>
-        <div>
-          
-          <input
-            type="checkbox"
-            checked={isAuthor}
-            onChange={() => handleCheckboxChange(isAuthor, setIsDate)} 
-          />
-          <label>Author</label>
-        </div>
-        <div>
-          
-          <input
-            type="checkbox"
-            checked={isStatus}
-            onChange={() => handleCheckboxChange(isStatus, setIsDate)} 
-          />
-          <label>Status</label>
-        </div>
-        <div>
-          
-          <input
-            type="checkbox"
-            checked={isDate}
-            onChange={() => handleCheckboxChange(isDate, setIsDate)} 
-          />
-          <label>Action</label>
-        </div>
-      </section> */}
 
-      <FilterCheckBox handleCheckboxChange={handleCheckboxChange} filterOptions={filterOptions} />
-      <Table filterOptions={filterOptions} />
+      <div >
+        <button className='menuBtn  ' onClick={() => setIsFilterBtn(!isFilterBtn)}>
+          <MdOutlineMenu />
+        </button>
+        {
+          isFilterBtn ? <div className='styled-element show'>
+            <FilterCheckBox handleCheckboxChange={handleCheckboxChange} filterOptions={filterOptions} />
+          </div> : <div className='styled-element hide'>
+            <FilterCheckBox handleCheckboxChange={handleCheckboxChange} filterOptions={filterOptions} />
+          </div>
+        }
+      </div>
+      <div>
+        <header className='tTitle'>Table Title</header>
+        <Table filterOptions={filterOptions} />
+      </div>
     </>
   )
 }

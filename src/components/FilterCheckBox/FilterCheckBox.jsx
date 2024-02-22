@@ -1,5 +1,5 @@
 import InputCheckBox from "./InputCheckBox";
-
+import "./checkboxStyle.css";
 
 // eslint-disable-next-line react/prop-types
 export default function FilterCheckBox({ handleCheckboxChange, filterOptions }) {
